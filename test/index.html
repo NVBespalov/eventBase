@@ -32,7 +32,8 @@
     assert = chai.assert;
     // Specs should be listed in first parameter as array of paths
     require([
-        specs + 'ux/vent'
+        specs + 'ux/vent',
+        specs + 'ux/moduleManager/moduleManager'
     ], function () {
         // Mocha tests runner
         require([upDirs + 'runner/mocha']);
