@@ -33,7 +33,8 @@
     // Specs should be listed in first parameter as array of paths
     require([
         specs + 'ux/vent',
-        specs + 'ux/moduleManager/moduleManager'
+        specs + 'ux/moduleManager/moduleManager',
+        specs + 'modules/abstract'
     ], function () {
         // Mocha tests runner
         require([upDirs + 'runner/mocha']);
