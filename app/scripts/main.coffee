@@ -22,6 +22,23 @@ require.config
 
 require [
   'backbone'
-], (Backbone) ->
-  Backbone.Events.trigger 'start', @
+  'underscore'
+  'ux/vent'
+  'ux/iterator'
+  'ux/domManipulator/domManipulator'
+  'ux/moduleManager'
+  'ux/instanceManager/instanceManager'
+], (
+  Backbone
+  _
+  vent
+  Iterator
+  DOMManipulator
+  ModuleManager
+  InstanceManager
+) ->
   debugger
+  iterator = new Iterator vent, _
+  domManipulator = new DOMManipulator vent,$,[]
+  instanceManager = new InstanceManager vent
+  moduleManager = new ModuleManager(vent,[])
