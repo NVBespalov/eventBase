@@ -6,7 +6,7 @@
 ###
 
 define ['modules/abstract'], (AbstractModule)->
-  # Модуль контейнер.
+  # Модуль Строка.
   # @extend AbstractModule
   # @author nickbespalov
   # @version 1.0
