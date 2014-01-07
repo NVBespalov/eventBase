@@ -139,7 +139,15 @@ define ['underscore','ux/instanceManager/collection','jquery'], (_,Collection,$)
       if module && rootElement
         module.rootElement = $rootElement
         moduleHelpersSelector = module.restSelector
-      if moduleHelpersSelector then @vent.trigger 'getDom', moduleHelpersSelector, undefined, _.partial(@assemblyPhaseThree,module), @
+      if moduleHelpersSelector
+        @vent.trigger(
+          'getDom'
+          moduleHelpersSelector
+          undefined
+          _.partial(@assemblyPhaseThree,module), @
+        )
+      else
+        @assemblyPhaseThree(module)
       return
 
     # Третья фаза сборки модуля.
@@ -151,7 +159,7 @@ define ['underscore','ux/instanceManager/collection','jquery'], (_,Collection,$)
     assemblyPhaseThree:(module,helperElements)->
       if module and helperElements
         module.setRestElements helperElements
-        @setInstance(module.initialize())
+      @setInstance(module.initialize())
       return
 
   return InstanceManager
