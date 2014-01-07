@@ -137,9 +137,8 @@ define ['underscore','ux/instanceManager/collection','jquery'], (_,Collection,$)
       $rootElement = if rootElement.jquery then rootElement else $(rootElement)
       if Module then module = new Module @vent
       if module && rootElement
-        module.setRootElement($rootElement)
-        module.setRestSelector()
-        moduleHelpersSelector = module.getRestSelector()
+        module.rootElement = $rootElement
+        moduleHelpersSelector = module.restSelector
       if moduleHelpersSelector then @vent.trigger 'getDom', moduleHelpersSelector, undefined, _.partial(@assemblyPhaseThree,module), @
       return
 
