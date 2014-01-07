@@ -28,6 +28,7 @@ require [
   'ux/domManipulator/domManipulator'
   'ux/moduleManager'
   'ux/instanceManager/instanceManager'
+  'modules/container'
 ], (
   Backbone
   _
@@ -36,9 +37,10 @@ require [
   DOMManipulator
   ModuleManager
   InstanceManager
+  ContainerModule
 ) ->
-  debugger
-  iterator = new Iterator vent, _
-  domManipulator = new DOMManipulator vent,$,[]
-  instanceManager = new InstanceManager vent
-  moduleManager = new ModuleManager(vent,[])
+  new Iterator vent, _
+  new DOMManipulator vent,$,[]
+  new InstanceManager vent
+  new ModuleManager(vent,[ContainerModule])
+  return

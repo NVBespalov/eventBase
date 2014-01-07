@@ -25,8 +25,8 @@ define ['underscore'], (_)->
       autoInitialize:true
 
     # @property [String] DOM селектор корневого элемента модуля.
-    get domSelector: -> @_domSelector
-    set domSelector: (@_domSelector)->
+    @getDomSelector = -> @_domSelector
+    @setDomSelector = (@_domSelector)->
 
     # @property [String] DOM селектор вспомогательных элементов модуля.
     get restSelector: -> @_restSelector
