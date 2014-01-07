@@ -112,7 +112,7 @@ define ['underscore','ux/instanceManager/collection','jquery'], (_,Collection,$)
       typeOfSelector = typeof moduleRootElementsSelector
       if moduleRootElementsSelector and  typeOfSelector is 'string' or typeOfSelector is 'object'
         @vent.trigger 'getDom', moduleRootElementsSelector,ModuleScope, _.partial(@assemblyPhaseOne,Module), @
-      else if Module.hasTemplate()
+      else
         @assemblyPhaseTwo Module
       return
 
