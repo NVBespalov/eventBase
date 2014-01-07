@@ -106,12 +106,14 @@ define ['underscore','ux/instanceManager/collection','jquery'], (_,Collection,$)
     #   vent.trigger('gotModule',Module)
     #
     # @param [Object] Модули для инициализации.
-    #
+
     processModule:(Module,ModuleScope)->
       if Module then moduleRootElementsSelector = Module.getDomSelector()
       typeOfSelector = typeof moduleRootElementsSelector
       if moduleRootElementsSelector and  typeOfSelector is 'string' or typeOfSelector is 'object'
         @vent.trigger 'getDom', moduleRootElementsSelector,ModuleScope, _.partial(@assemblyPhaseOne,Module), @
+      else if Module.hasTemplate()
+        @assemblyPhaseTwo Module
       return
 
     # Первая фаза сборки модуля.
